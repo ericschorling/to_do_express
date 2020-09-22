@@ -1,3 +1,4 @@
+'use strict'
 const express = require('express'),
     app = express(),
     http = require('http'),
@@ -18,7 +19,7 @@ const logger = morgan('tiny')
 app.use(logger)
 
 app.use(helmet())
-app.use(express.static('publi'))
+app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({entended:false}))
 app.use(cookieParser())
@@ -43,6 +44,6 @@ const userController = require('./routes/user')
 const todoController = require('./routes/todo')
 
 app.use('/', rootController)
-app.use('/login', userController)
+app.use('/login', rootController)
 app.use('/signup', userController)
 app.use('/todo', todoController)
