@@ -56,7 +56,11 @@ router.post('/', async (req, res) =>{
                 console.log(req.body.id)
                 const theToDos = await theList.getToDos(req.session.user_id)
                 console.log(theToDos)
-                todoArr = theToDos.filter()
+                let todoArr = theToDos.filter(toDo => toDo.completed)
+                console.log(todoArr)
+                todoArr.map(todo=> {
+                    
+                })
                 // console.log('happened')
                 // const thetodos = await theList.getToDos(req.session.user_id)
                 // const undoArr = await thetodos.filter(todo=>{
